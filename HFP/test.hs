@@ -29,4 +29,15 @@ myAbs x = if x >= 0 then x else negate x
 f :: (a, b) -> (c, d) -> ((b, d), (a, c))
 f x y = ((snd x, snd y),  (fst x, fst y))
 
--- TODO g (x:xs) = x pattern matching? type declaration?
+nonsense :: Bool -> Integer
+nonsense True  = 805
+nonsense False = 31337
+
+typicalCurriedFunction :: Integer -> Bool -> Integer
+typicalCurriedFunction i b = i + nonsense b
+
+anonymous :: Integer -> Bool -> Integer
+anonymous = \i b -> i + nonsense b
+
+anonymousAndManuallyNested :: Integer -> Bool -> Integer
+anonymousAndManuallyNested = \i -> \b -> i + nonsense b
